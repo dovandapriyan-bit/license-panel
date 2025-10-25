@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <title>License Activation</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>License Activation</h1>
+    <div id="status" class="card">
+      <p>Masukkan license key untuk aktivasi.</p>
+      <input id="licenseKey" placeholder="LIC-XXXX-XXXX-XXXX" />
+      <input id="productId" placeholder="Product ID (contoh: prod-pos)" />
+      <button id="btnCheck">Check & Activate</button>
+      <div id="result"></div>
+    </div>
+    <hr/>
+    <div class="card">
+      <h3>Demo: lihat lisensi</h3>
+      <button id="btnList">List semua lisensi</button>
+      <div id="list"></div>
+    </div>
+    <p class="muted">Panel admin: <a href="admin.html">buka admin</a></p>
+  </div>
+
+  <!-- Firebase libs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <script src="js/firebase-config.js"></script>
+  <script>
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

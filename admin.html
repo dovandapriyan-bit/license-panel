@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <title>Admin License Panel</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Admin Panel - License System</h1>
+
+    <div id="authCard" class="card">
+      <h3>Admin Login</h3>
+      <input id="email" placeholder="admin email" />
+      <input id="password" placeholder="password" type="password" />
+      <button id="btnLogin">Login</button>
+      <button id="btnLogout" style="display:none">Logout</button>
+      <div id="authMsg"></div>
+    </div>
+
+    <div id="adminArea" style="display:none">
+      <div class="card">
+        <h3>Create License</h3>
+        <input id="a_ownerEmail" placeholder="owner email" />
+        <input id="a_productId" placeholder="product id (prod-pos)" />
+        <input id="a_duration" placeholder="duration days (30)" />
+        <button id="btnCreate">Create License</button>
+        <div id="createMsg"></div>
+      </div>
+
+      <div class="card">
+        <h3>Licenses</h3>
+        <input id="q" placeholder="search by email / product / key" />
+        <button id="btnSearch">Search</button>
+        <button id="btnRefresh">Refresh</button>
+        <div id="licensesList"></div>
+      </div>
+    </div>
+
+    <p class="muted">Note: Admin uses Firebase Authentication - create admin account via Firebase Console → Authentication → Users</p>
+  </div>
+
+  <!-- Firebase libs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <script src="js/firebase-config.js"></script>
+  <script>
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const auth = firebase.auth();
+  </script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
